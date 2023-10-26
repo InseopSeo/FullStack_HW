@@ -1,18 +1,28 @@
 package main
 
 import (
-	_ "fmt"
+	"fmt"
 	"net/http"
 )
 
+type MyHttpHandler struct{}
+
+func (h MyHttpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello, World!")
+}
+
 func main() {
-	//server_name := "localhost"
-	//sever_port:=8080
+	server_name := "localhost"
+	server_port := 8080
+	address := fmt.Sprintf("%s%s%d", server_name, ":", server_port)
 
-	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		w.Write([]byte("Hello World"))
-	})
+	http.Handle("/", MyHttpHandler{})
 
-	http.ListenAndServe(":8080", nil)
+	fmt.Printf("HTTP server started at http://%s:%d\n", server_name, server_port)
+
+	err := http.ListenAndServe(address, nil)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
 
 }
