@@ -47,5 +47,5 @@ print(superHeroes['homeTown'])
 print(superHeroes['active'])
 print(superHeroes['members'][1]['powers'][2])
 
-with open('lec-06-prg-04-json-example.json', 'w') as json_out_file:
+with open('./Lecture_06_HTTP_1_1_Source_Code_v3/lec-06-prg-04-json-example/lec-06-prg-04-json-example2.json', 'w') as json_out_file:
     json.dump(superHeroes, json_out_file, indent='\t')
