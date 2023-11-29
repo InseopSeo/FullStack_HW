@@ -97,7 +97,7 @@ func (h MyHttpHandler) parameterRetrieval(msg string) []int {
 	return result
 }
 
-func main2() {
+func main() {
 	server_name := "localhost"
 	server_port := 8080
 	address := fmt.Sprintf("%s%s%d", server_name, ":", server_port)
