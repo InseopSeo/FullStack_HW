@@ -86,7 +86,7 @@ class MyHttpHandler(BaseHTTPRequestHandler):
 if __name__ == "__main__": 
     """Main function."""
     server_name = "localhost"
-    server_port = 8081
+    server_port = 8080
 
     webServer = HTTPServer((server_name, server_port), MyHttpHandler)
     print("## HTTP server started at http://{0}:{1}.".format(server_name, server_port))
